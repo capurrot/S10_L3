@@ -8,6 +8,7 @@ import NavComponent from "./components/NavComponent";
 import ProfileComponent from "./components/ProfileComponent";
 import SettingsComponent from "./components/SettingsComponent";
 import { BrowserRouter, Route, Router, Routes } from "react-router";
+import TvShows from "./components/TvShows";
 
 const App = () => {
   const [page, setPage] = useState("home");
@@ -58,6 +59,7 @@ const App = () => {
             </>
           }
         />
+        <Route path="/tv-shows" element={<TvShows title="TVShows" />} />
       </Routes>
     </BrowserRouter>
   );

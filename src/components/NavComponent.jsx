@@ -3,6 +3,7 @@ import { Navbar, Container, Nav, Dropdown, ButtonGroup } from "react-bootstrap";
 import { Bell, PersonCircle } from "react-bootstrap-icons";
 import Logo from "./LogoComponent";
 import SearchForm from "./SearchComponent";
+import { NavLink } from "react-router";
 
 function NavComponent({ type, searchFilm, updateState }) {
   const handleNavigation = (page) => {
@@ -21,12 +22,12 @@ function NavComponent({ type, searchFilm, updateState }) {
           <Nav className="me-auto">
             {type === "home" && (
               <>
-                <Nav.Link href="#home" className="active fw-bold">
+                <NavLink className="nav-link fw-bold" to="/">
                   Home
-                </Nav.Link>
-                <Nav.Link href="#shows" className="fw-bold">
+                </NavLink>
+                <NavLink className="nav-link fw-bold" to="/tv-shows">
                   TV Shows
-                </Nav.Link>
+                </NavLink>
                 <Nav.Link href="#movies" className="fw-bold">
                   Movies
                 </Nav.Link>
