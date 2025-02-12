@@ -1,0 +1,125 @@
+body {
+  background-color: #221f1f !important;
+}
+
+footer {
+  background-color: #221f1f !important;
+}
+
+h2,
+h4,
+footer {
+  color: #f5f5f1 !important;
+}
+
+.mynav {
+  background-color: #221f1f !important;
+}
+
+.icons {
+  margin-left: 0.8em;
+  margin-right: 0.8em;
+  font-size: 1.2em;
+  color: #f5f5f1;
+}
+
+.iconsprofile {
+  display: flex;
+  justify-content: center;
+  font-size: 8em;
+  color: #f5f5f1;
+  margin-bottom: 1rem;
+}
+
+.navbar-nav {
+  font-size: 90%;
+}
+
+#kids {
+  color: #f5f5f1;
+  font-size: 0.8em;
+}
+
+.footer-icon {
+  color: #838383;
+}
+
+.footer-links {
+  font-size: 0.8em;
+}
+
+.footer-links p {
+  margin-bottom: 0.3em;
+  color: #838383;
+}
+
+.footer-links a {
+  color: #838383;
+  text-decoration: none;
+}
+
+.footer-button {
+  color: #838383 !important;
+  border-color: #838383 !important;
+  background-color: #221f1f !important;
+}
+
+.footer-button:hover {
+  color: #f5f5f1 !important;
+  border-color: transparent !important;
+  background-color: #221f1f !important;
+}
+
+.copyright {
+  color: #838383;
+  font-size: 0.6em;
+}
+
+.col img {
+  transition: transform 0.2s;
+}
+
+.col img:hover {
+  transform: scale(1.1);
+}
+
+.filmimg {
+  width: 100%;
+  /* Ho decio di metterlo così per vederlo meglio del 16/9 di prima. Se le immagini fossero orizzontali sarebbe meglio */
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.no-triangle::after {
+  display: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #3a3a3a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.profile-container {
+  width: 100%;
+  margin-inline: auto;
+}
+
+@media (min-width: 902px) {
+  .profile-container {
+    width: 50%;
+  }
+}
