@@ -38,7 +38,7 @@ const MovieDetails = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <>
       {isLoading && (
         <Spinner animation="grow" role="status" variant="danger" className="d-block mx-auto p-5">
           <span className="visually-hidden">Loading...</span>
@@ -67,7 +67,7 @@ const MovieDetails = () => {
           </Row>
         </Container>
       )}
-    </div>
+    </>
   );
 };
 

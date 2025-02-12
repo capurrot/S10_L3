@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { Form, Button, Collapse } from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
+import { useLocation } from "react-router";
 
 const SearchForm = ({ searchFilm }) => {
   const [open, setOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+
+  const location = useLocation();
+  console.log(location);
 
   const toggleCollapse = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -20,13 +24,21 @@ const SearchForm = ({ searchFilm }) => {
     searchFilm(formattedValue);
   };
 
+  const myPlaceholder = () => {
+    if (location.pathname === "/tv-shows") {
+      return "Find TV Series";
+    } else {
+      return "Titles, people, genres";
+    }
+  };
+
   return (
     <Form className="d-flex align-items-center" role="search" onSubmit={handleSubmit}>
       <Collapse in={open}>
         <div className="me-2">
           <Form.Control
             type="text"
-            placeholder="Titles, people, genres"
+            placeholder={myPlaceholder()}
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />
