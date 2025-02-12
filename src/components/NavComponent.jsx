@@ -1,25 +1,30 @@
+/* import { useState } from "react"; */
 import { Navbar, Container, Nav, Dropdown, ButtonGroup } from "react-bootstrap";
 import { Bell, PersonCircle } from "react-bootstrap-icons";
 import Logo from "./LogoComponent";
 import SearchForm from "./SearchComponent";
 
-function NavComponent(props) {
+function NavComponent({ type, searchFilm, updateState }) {
+  const handleNavigation = (page) => {
+    updateState({ page });
+  };
+
   return (
     <Navbar expand="lg" data-bs-theme="dark" variant="dark" style={{ backgroundColor: "#221f1f" }}>
       <Container fluid>
-        <Navbar.Brand href="#home" onClick={() => props.updateState({ page: "home" })}>
+        <Navbar.Brand href="#home" onClick={() => handleNavigation("home")}>
           <Logo />
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            {props.type === "home" && (
+            {type === "home" && (
               <>
-                <Nav.Link href="#home" className="fw-bold">
+                <Nav.Link href="#home" className="active fw-bold">
                   Home
                 </Nav.Link>
-                <Nav.Link href="#shows" className="active fw-bold">
+                <Nav.Link href="#shows" className="fw-bold">
                   TV Shows
                 </Nav.Link>
                 <Nav.Link href="#movies" className="fw-bold">
@@ -34,9 +39,9 @@ function NavComponent(props) {
               </>
             )}
           </Nav>
-          {props.type === "home" && (
+          {type === "home" && (
             <div className="d-flex align-items-center gap-3">
-              <SearchForm searchFilm={props.searchFilm} />
+              <SearchForm searchFilm={searchFilm} />
               <span className="fw-bold text-white">KIDS</span>
               <Bell className="icons" />
 
@@ -49,11 +54,11 @@ function NavComponent(props) {
                   <PersonCircle className="icons" />
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="dropdown-menu-end" style={{ backgroundColor: "#221f1f" }}>
-                  <Dropdown.Item href="#" onClick={() => props.updateState({ page: "profile" })}>
+                  <Dropdown.Item href="#" onClick={() => handleNavigation("profile")}>
                     Profile
                   </Dropdown.Item>
                   <Dropdown.Divider />
-                  <Dropdown.Item href="#" onClick={() => props.updateState({ page: "settings" })}>
+                  <Dropdown.Item href="#" onClick={() => handleNavigation("settings")}>
                     Settings
                   </Dropdown.Item>
                 </Dropdown.Menu>
