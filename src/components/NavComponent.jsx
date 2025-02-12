@@ -28,9 +28,9 @@ function NavComponent({ type, searchFilm, updateState }) {
                 <NavLink className="nav-link fw-bold" to="/tv-shows">
                   TV Shows
                 </NavLink>
-                <Nav.Link href="#movies" className="fw-bold">
+                <NavLink className="nav-link fw-bold" to="/movies">
                   Movies
-                </Nav.Link>
+                </NavLink>
                 <Nav.Link href="#added" className="fw-bold">
                   Recently Added
                 </Nav.Link>

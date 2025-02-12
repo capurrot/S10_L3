@@ -3,12 +3,11 @@ import { Container } from "react-bootstrap";
 import "./App.css";
 import FilmComponent from "./components/FilmComponent";
 import FooterComponent from "./components/FooterComponent";
-import GenreComponent from "./components/GenreComponent";
 import NavComponent from "./components/NavComponent";
-import ProfileComponent from "./components/ProfileComponent";
-import SettingsComponent from "./components/SettingsComponent";
-import { BrowserRouter, Route, Router, Routes } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router";
 import TvShows from "./components/TvShows";
+import NotFound from "./components/NotFound";
+import MovieDetails from "./components/MovieDetails";
 
 const App = () => {
   const [page, setPage] = useState("home");
@@ -44,7 +43,7 @@ const App = () => {
     </> */
 
     <BrowserRouter>
-      <NavComponent type="home" updateState={setPage} searchFilm={setSearchFilm} />
+      <NavComponent page={page} type="home" updateState={setPage} searchFilm={setSearchFilm} />
       <Routes>
         <Route
           path="/"
@@ -59,8 +58,20 @@ const App = () => {
             </>
           }
         />
-        <Route path="/tv-shows" element={<TvShows title="TVShows" />} />
+        <Route
+          path="/tv-shows"
+          element={
+            <>
+              <Container fluid className="px-4">
+                <TvShows title="TVShows" />
+              </Container>
+            </>
+          }
+        />
+        <Route path="/movie-details/:movieId" element={<MovieDetails />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
+      <FooterComponent />
     </BrowserRouter>
   );
 };
