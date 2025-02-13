@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Col, Container, Image, Row, Spinner } from "react-bootstrap";
+import { Alert, Col, Container, Image, Row, Spinner } from "react-bootstrap";
 import { Link, useParams } from "react-router";
+import CommentList from "./CommentList";
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -44,7 +45,7 @@ const MovieDetails = () => {
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       )}
-
+      {hasError && <Alert variant="danger">{errorMessage || "Errore generico"}</Alert>}
       {film && (
         <Container>
           <Row className="justify-content-center mb-4">
@@ -63,6 +64,9 @@ const MovieDetails = () => {
               <Link to="/tv-shows" className="btn btn-danger">
                 Torna a TV Shows
               </Link>
+            </Col>
+            <Col>
+              <CommentList></CommentList>
             </Col>
           </Row>
         </Container>
