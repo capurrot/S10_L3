@@ -34,11 +34,14 @@ const CommentList = () => {
   }, [params.movieId]);
 
   return (
-    <ListGroup>
-      {reviews.map((review) => (
-        <SingleComment key={review._id} review={review} />
-      ))}
-    </ListGroup>
+    <>
+      <div className="text-light text-center py-2 bg-secondary">Comment Area</div>
+      <ListGroup>
+        {reviews.map((review) => (
+          <SingleComment key={review._id} review={review} />
+        ))}
+      </ListGroup>
+    </>
   );
 };
 

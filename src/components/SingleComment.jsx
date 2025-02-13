@@ -1,8 +1,8 @@
-import { Component } from "react";
 import { Button, ListGroupItem } from "react-bootstrap";
+import { StarFill } from "react-bootstrap-icons";
 
-class SingleComment extends Component {
-  handleDelete = (id) => {
+const SingleComment = (props) => {
+  const handleDelete = (id) => {
     fetch("https://striveschool-api.herokuapp.com/api/comments/" + id, {
       method: "DELETE",
       headers: {
@@ -12,21 +12,24 @@ class SingleComment extends Component {
     });
   };
 
-  render() {
-    return (
-      <ListGroupItem className="d-flex justify-content-between">
-        <span>{this.props.review.comment}</span> <span>{this.props.review.rate}</span>
-        <Button
-          variant="danger"
-          onClick={() => {
-            this.handleDelete(this.props.review._id);
-          }}
-        >
-          🗑️
-        </Button>
-      </ListGroupItem>
-    );
-  }
-}
+  const handleRate = (rate) => {
+    return [...Array(rate)].map((i) => <StarFill key={i} className="text-warning" />);
+  };
+
+  return (
+    <ListGroupItem className="d-flex flex-column bg-transparent text-light border-0">
+      <span>{props.review.comment}</span>
+      <span>{handleRate(props.review.rate)}</span> <span>{props.review.author}</span>
+      <Button
+        variant="danger"
+        onClick={() => {
+          handleDelete(props.review._id);
+        }}
+      >
+        🗑️
+      </Button>
+    </ListGroupItem>
+  );
+};
 
 export default SingleComment;

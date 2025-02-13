@@ -12,6 +12,12 @@ footer {
   color: #f5f5f1 !important;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .mynav {
   background-color: #221f1f !important;
 }
@@ -38,6 +44,10 @@ footer {
 #kids {
   color: #f5f5f1;
   font-size: 0.8em;
+}
+
+footer {
+  margin-top: auto;
 }
 
 .footer-icon {

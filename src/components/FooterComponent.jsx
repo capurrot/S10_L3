@@ -3,7 +3,7 @@ import { Facebook, Instagram, Twitter, Youtube } from "react-bootstrap-icons";
 
 const FooterComponent = () => {
   return (
-    <footer className="my-5">
+    <footer>
       <Container fluid>
         <Row className="justify-content-center">
           <Col md={6}>

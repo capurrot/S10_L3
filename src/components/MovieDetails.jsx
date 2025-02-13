@@ -49,7 +49,7 @@ const MovieDetails = () => {
       {film && (
         <Container>
           <Row className="justify-content-center mb-4">
-            <Col md={6}>
+            <Col md={8} className="pe-5">
               <h2>{film.Title}</h2>
               <Image src={film.Poster} alt={film.Title} className="float-start me-3" />
               <p className="text-light">
@@ -65,7 +65,7 @@ const MovieDetails = () => {
                 Torna a TV Shows
               </Link>
             </Col>
-            <Col>
+            <Col className="border border-1 rounded overflow-y-auto p-0">
               <CommentList></CommentList>
             </Col>
           </Row>
